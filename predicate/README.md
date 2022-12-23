@@ -138,7 +138,7 @@ Vamos evoluir nossos exemplos, criamos para facilitar
 no meu [github](https://github.com/weder96) , criei um [repositorio](https://github.com/weder96/thinking_functionally_java/tree/main/functional/src/main/java/com/wsousa/functional/features/repo), com dados que serão manipulados, lembrando que a dados mais completos no git aqui somente uma definição base:
 
 
-|name (String) |qtyEmployee(Integer) |marketValue (BigDecimal) | positionRanking(Integer) | branch(boolean) | location (String) | departament (List<String>) | address(Address)|
+|name |qtyEmployee |marketValue | positionRanking | branch | location  | departament | address|
 |--------------|---------------------|-------------------------|--------------------------|-----------------|-------------------|----------------------------|-----------------|
 |Apple | 92600 | 2200000000000.00 | 1 | false | USA | "Streaming", "Personal Computer", "Smartphones", "System Operational Mac", "System Operational IOS" | |
 |Microsoft  | 166000 | 1865000000000.00 | 2 | false | USA | "System Operational Windows", "Cloud Computing", "Social Network Linkedin" | |
