@@ -1,9 +1,12 @@
 package com.wsousa.functional.features.streams;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
+@Slf4j
 public class NumericStreamMapExample {
 	
 	static double map2Double() {
@@ -24,9 +27,9 @@ public class NumericStreamMapExample {
 	}
 
 	public static void main(String[] args) {
-		System.out.println("Map 2 Double :"+map2Double());
-		System.out.println("Map 2 Long :"+map2Long());
-		System.out.println("Map 2 Object :"+map2Object());
+		log.info("Map 2 Double : {}",map2Double());
+		log.info("Map 2 Long : {}",map2Long());
+		log.info("Map 2 Object : {}",map2Object());
 	}
 
 }

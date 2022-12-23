@@ -2,13 +2,14 @@ package com.wsousa.functional.features.streams;
 
 import com.wsousa.functional.features.repo.Company;
 import com.wsousa.functional.features.repo.CompanyRepository;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+@Slf4j
 public class StreamMinMaxByExample {
 	
 	static Optional<Company> getTallestCompany() {
@@ -20,7 +21,7 @@ public class StreamMinMaxByExample {
 	static Optional<Company> getShortestCompany() {
 		return CompanyRepository.getAllCompanies()
 		.stream()
-		.collect(Collectors.minBy(Comparator.comparing(Company :: getQtyEmployee)));
+		.collect(Collectors.minBy(Comparator.comparing(Company::getQtyEmployee)));
 	}
 	static List<Company> filterMultipleCompanys(){
 		List<Company> CompanyList = new ArrayList<Company>();
@@ -29,16 +30,16 @@ public class StreamMinMaxByExample {
 		if(null != per) {
 			CompanyList = CompanyRepository.getAllCompanies()
 			.stream()
-			.filter(Company -> Company.getQtyEmployee()==per.getQtyEmployee())
+			.filter(Company -> Company.getQtyEmployee() == per.getQtyEmployee())
 			.collect(Collectors.toList());
 		}
 		return CompanyList;
 	}
 	
 	public static void main(String[] args) {
-		System.out.println("Tallest Company :"+getTallestCompany().get());
-		System.out.println("Shortest Company :"+getShortestCompany().get());
-		System.out.println("Tallest Group :"+filterMultipleCompanys());
+		log.info("Tallest Company : {}", getTallestCompany().get());
+		log.info("Shortest Company : {}",getShortestCompany().get());
+		log.info("Tallest Group : {}",filterMultipleCompanys());
 	}
 
 }

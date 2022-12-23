@@ -1,9 +1,11 @@
 package com.wsousa.functional.features.streams;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
+@Slf4j
 public class StreamBoxingUnboxingExample {
 	static List<Integer> boxingMethod(){
 		return IntStream.rangeClosed(1, 10) // primitive int
@@ -16,7 +18,7 @@ public class StreamBoxingUnboxingExample {
 				.sum(); // performing sum operation
 	}
 	public static void main(String[] args) {
-		boxingMethod().forEach(i -> System.out.format("%d, ", i));
-		System.out.println("Sum is :"+calculateSum(boxingMethod()));
+		boxingMethod().forEach(i -> log.info(" {}", i));
+		log.info("Sum is :"+calculateSum(boxingMethod()));
 	}
 }

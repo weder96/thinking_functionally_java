@@ -15,8 +15,7 @@ congêneres convencionais.
 —John Hughes
 
 
-A primeira pergunta que fazemos sempre  
-What is functional programming?
+A primeira pergunta que fazemos sempre, What is functional programming?
 
 Estudando o assunto, entendo que a Programação funcional não se opoem a Orientação a Objetos, fato,
 mas entendo que há algo mais importante do que concordar ou não, na area de programação temos muito isso discordar de algo, ok e sempre devemos respeitar a opinião e as vezes até concordamos com um ponto de vista que ainda não tinhamos pensado.
@@ -238,67 +237,3 @@ public class TwoArgsGenericsProcessorTest {
 saida console:
 
 INFO com.wsousa.functional.features.post.TwoArgsGenericsProcessorTest -  240
-
-
-5. Conhecendo Lambda Expressões
-
-
-Sim agora um ponto importante entender como funciona a definição Lambda Expressões:
-
-Uma expressão lambda é usada para representar uma instrução. 
-Eles foram introduzidos em Java 8 para suportar a programação funcional. A forma básica de uma expressão lambda é a seguinte:
-
-```  
-lambda_argument_list -> lambda_body
-```
-
-
-Isso pode ser representado pela seguinte expressão lambda:
-
-O argumento fornecido em x, ou seja, x, torna-se o argumento para o processo do método funcional. 
-Como Lambda_body contém um único expressão, diz-se que é especificada na forma de expressão. 
-A expressão é avaliada e então retornado como o resultado int do processo do método. 
-Neste exemplo, o Lambda_body é explicitamente especificado como a variável int x
-
-```
-x -> x
-```
-
-Vamos criar uma Interface Funcional para testar o lambda: 
-
-```
-@FunctionalInterface
-public interface ProcessorLamba {
-    void methodOne(int x);
-}
-```
-
-Criando classe para testear o lambda:
-
-```
-@Slf4j
-public class MyExecuteTestLambda {
-    public static void main(String[] args) {
-        ProcessorLamba lambdaAdd = x -> log.info("execute:  {}", x);
-        lambdaAdd.methodOne(5);
-    }
-}
-```
-
-Saida console:
-
-INFO com.wsousa.functional.features.post.MyExecuteTestLambda - execute:  5
-
-
-6. A java.util.function
-
-
-O pacote java.util.function fornece um conjunto de definições de interfaces funcionais comuns reutilizáveis (e seu lambda correspondente) que podem ser usadas pelos programadores em seu código em vez de criar novas interfaces funcionais.
-
-As interfaces funcionais fornecem tipos de destino para expressões lambda e referências de método. 
-
-Cada interface funcional tem um único método abstrato, chamado de método funcional para aquela interface funcional.
-
-
-
-

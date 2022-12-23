@@ -2,11 +2,12 @@ package com.wsousa.functional.features.streams;
 
 import com.wsousa.functional.features.repo.Company;
 import com.wsousa.functional.features.repo.CompanyRepository;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Comparator;
 import java.util.Optional;
 import java.util.stream.Collectors;
-
+@Slf4j
 public class StreamMinMaxCompanyByExample {
 	static Optional<Company> getTallestCompany() {
 		return CompanyRepository.getAllCompanies()
@@ -19,7 +20,7 @@ public class StreamMinMaxCompanyByExample {
 		.collect(Collectors.minBy(Comparator.comparing(Company::getQtyEmployee)));
 	}
 	public static void main(String[] args) {
-		System.out.println("Tallest Company :"+getTallestCompany().get());
-		System.out.println("Shortest Company :"+getShortestCompany().get());
+		log.info("Tallest Company : {}",getTallestCompany().get());
+		log.info("Shortest Company : {}",getShortestCompany().get());
 	}
 }

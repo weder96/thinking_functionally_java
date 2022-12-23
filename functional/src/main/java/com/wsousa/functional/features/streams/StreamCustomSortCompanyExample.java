@@ -2,26 +2,29 @@ package com.wsousa.functional.features.streams;
 
 import com.wsousa.functional.features.repo.Company;
 import com.wsousa.functional.features.repo.CompanyRepository;
+import lombok.extern.slf4j.Slf4j;
 
 import java.util.Comparator;
-
+@Slf4j
 public class StreamCustomSortCompanyExample {
 
 	public static void main(String[] args) {
-		System.out.println("Sort By Name");
+		log.info("Sort By Name");
 		CompanyRepository.getAllCompanies().stream()
 		.sorted(Comparator.comparing(Company::getName))
-		.forEach(System.out::println);
-		
-		System.out.println("Sort By qtyEmployee");
+		.forEach(company->log.info("{}", company));
+
+		log.info("");
+		log.info("Sort By qtyEmployee");
 		CompanyRepository.getAllCompanies().stream()
 		.sorted(Comparator.comparing(Company::getQtyEmployee))
-		.forEach(System.out::println); 
-		
-		System.out.println("Reverse Sort By Name");
+		.forEach(company->log.info("{}", company));
+
+		log.info("");
+		log.info("Reverse Sort By Name");
 		CompanyRepository.getAllCompanies().stream()
 		.sorted(Comparator.comparing(Company::getName).reversed())
-		.forEach(System.out::println);
+		.forEach(company->log.info("{}", company));
 	}
 
 }

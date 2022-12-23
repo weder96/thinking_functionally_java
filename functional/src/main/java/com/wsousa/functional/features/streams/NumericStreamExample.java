@@ -1,16 +1,19 @@
 package com.wsousa.functional.features.streams;
 
+import lombok.extern.slf4j.Slf4j;
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.BinaryOperator;
 import java.util.stream.IntStream;
 
+@Slf4j
 public class NumericStreamExample {
 
-	static BinaryOperator<Integer> bo = (x, y) -> x + y;
+	static BinaryOperator<Integer> binaryOperator = (x, y) -> x + y;
 
 	static int calculateSum(List<Integer> l1) {
-		return l1.stream().reduce(0, bo);
+		return l1.stream().reduce(0, binaryOperator);
 	}
 	
 	static int calculateSumWithStream(IntStream intStream) {
@@ -19,9 +22,9 @@ public class NumericStreamExample {
 
 	public static void main(String[] args) {
 		List<Integer> l1 = Arrays.asList(1,2,3,4,5,6);
-		System.out.println("Total is :"+calculateSum(l1));
+		log.info("Total is : {}", calculateSum(l1));
 		IntStream intStream = IntStream.rangeClosed(1, 6);
-		System.out.println("Total Using Stream :"+calculateSumWithStream(intStream));
+		log.info("Total Using Stream : {}", calculateSumWithStream(intStream));
 	}
 
 }
